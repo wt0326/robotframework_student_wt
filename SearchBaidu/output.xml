@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.7.8 on win32)" generated="20241213 23:39:06.897" rpa="false" schemaversion="3">
+<suite id="s1" name="Baidu Search Api" source="D:\PycharmProjects\SearchBaidu\baidu_search_api.robot">
+<test id="s1-t1" name="Search For Keywords On Baidu" line="11">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20241213 23:39:06.992" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20241213 23:39:06.992" endtime="20241213 23:39:06.992"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${host}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20241213 23:39:06.992" level="INFO">Creating Session using : alias=mysession, url=https://ug.baidu.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20241213 23:39:06.992" endtime="20241213 23:39:06.992"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${data}</var>
+<arg>"invoke_info"={"pos_1":[{}],"pos_2":[{}],"pos_3":[{}]}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20241213 23:39:06.992" level="INFO">${data} = {'"invoke_info"': '{"pos_1":[{}],"pos_2":[{}],"pos_3":[{}]}'}</msg>
+<status status="PASS" starttime="20241213 23:39:06.992" endtime="20241213 23:39:06.992"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json_data}</var>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20241213 23:39:06.992" level="INFO">${json_data} = {"\"invoke_info\"": "{\"pos_1\":[{}],\"pos_2\":[{}],\"pos_3\":[{}]}"}</msg>
+<status status="PASS" starttime="20241213 23:39:06.992" endtime="20241213 23:39:06.992"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>${path}</arg>
+<arg>data=${json_data}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20241213 23:39:07.086" level="INFO">POST Request : url=https://ug.baidu.com/mcp/pc/pcsearch 
+ path_url=/mcp/pc/pcsearch 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '69'} 
+ body={"\"invoke_info\"": "{\"pos_1\":[{}],\"pos_2\":[{}],\"pos_3\":[{}]}"} 
+ </msg>
+<msg timestamp="20241213 23:39:07.086" level="INFO">POST Response : url=https://ug.baidu.com/mcp/pc/pcsearch 
+ status=200, reason=OK 
+ headers={'Content-Length': '73', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 13 Dec 2024 15:39:07 GMT', 'Tracecode': '14371918861348981770121311'} 
+ body={"errno":0,"errmsg":"ok","data":{"log_id":"1437191886","action_rule":{}}} 
+ </msg>
+<msg timestamp="20241213 23:39:07.086" level="INFO">d:\pyt\python\python37\lib\site-packages\urllib3\connectionpool.py:1107: InsecureRequestWarning: Unverified HTTPS request is being made to host 'ug.baidu.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20241213 23:39:07.086" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20241213 23:39:06.992" endtime="20241213 23:39:07.086"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20241213 23:39:07.086" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20241213 23:39:07.086" endtime="20241213 23:39:07.086"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${resp.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241213 23:39:07.086" level="INFO">{"errno":0,"errmsg":"ok","data":{"log_id":"1437191886","action_rule":{}}}</msg>
+<status status="PASS" starttime="20241213 23:39:07.086" endtime="20241213 23:39:07.086"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241213 23:39:07.086" level="INFO">{'errno': 0, 'errmsg': 'ok', 'data': {'log_id': '1437191886', 'action_rule': {}}}</msg>
+<status status="PASS" starttime="20241213 23:39:07.086" endtime="20241213 23:39:07.086"/>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${0}</arg>
+<arg>${resp.json()["errno"]}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" starttime="20241213 23:39:07.086" endtime="20241213 23:39:07.086"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>ok</arg>
+<arg>${resp.json()["errmsg"]}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20241213 23:39:07.086" endtime="20241213 23:39:07.086"/>
+</kw>
+<status status="PASS" starttime="20241213 23:39:06.992" endtime="20241213 23:39:07.086"/>
+</test>
+<status status="PASS" starttime="20241213 23:39:06.897" endtime="20241213 23:39:07.086"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Baidu Search Api">Baidu Search Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

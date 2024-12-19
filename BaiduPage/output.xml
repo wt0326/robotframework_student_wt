@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.7.8 on win32)" generated="20241218 18:17:49.461" rpa="false" schemaversion="3">
+<suite id="s1" name="Baidu Page Copy" source="D:\PycharmProjects\BaiduPage\baidu_page_copy.robot">
+<test id="s1-t1" name="Get Baidu Page" line="9">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${host}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20241218 18:17:49.534" level="INFO">Creating Session using : alias=mysession, url=https://www.baidu.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20241218 18:17:49.534" endtime="20241218 18:17:49.534"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>mysession</arg>
+<arg>${path}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20241218 18:17:49.645" level="INFO">GET Request : url=https://www.baidu.com/sugrec?&amp;prod=pc_his&amp;from=pc_web&amp;json=1&amp;sid=60277_61027_60853_61358_61373_61390_61392_61429_61464&amp;hisdata=%5B%7B%22time%22%3A1733973298%2C%22kw%22%3A%221733970025%E6%97%B6%E9%97%B4%E6%88%B3%E6%80%8E%E4%B9%88%E7%AE%97%E7%9A%84%22%7D%2C%7B%22time%22%3A1733973622%2C%22kw%22%3A%22postman%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E6%88%B3%22%7D%2C%7B%22time%22%3A1733976881%2C%22kw%22%3A%22postman%E4%BF%9D%E5%AD%98token%22%7D%2C%7B%22time%22%3A1733998766%2C%22kw%22%3A%22%E5%9B%BE%E7%89%87%E5%A3%81%E7%BA%B8%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059384%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E6%80%8E%E4%B9%88%E8%B0%83%E7%94%A8%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059420%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059550%2C%22kw%22%3A%22%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734090849%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%22%2C%22fq%22%3A8%7D%2C%7B%22time%22%3A1734511587%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734511834%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%20%E4%BD%A0%E5%B0%B1%E7%9F%A5%E9%81%93%22%2C%22fq%22%3A2%7D%5D&amp;_t=1734511863552&amp;req=2&amp;csor=0 
+ path_url=/sugrec?&amp;prod=pc_his&amp;from=pc_web&amp;json=1&amp;sid=60277_61027_60853_61358_61373_61390_61392_61429_61464&amp;hisdata=%5B%7B%22time%22%3A1733973298%2C%22kw%22%3A%221733970025%E6%97%B6%E9%97%B4%E6%88%B3%E6%80%8E%E4%B9%88%E7%AE%97%E7%9A%84%22%7D%2C%7B%22time%22%3A1733973622%2C%22kw%22%3A%22postman%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E6%88%B3%22%7D%2C%7B%22time%22%3A1733976881%2C%22kw%22%3A%22postman%E4%BF%9D%E5%AD%98token%22%7D%2C%7B%22time%22%3A1733998766%2C%22kw%22%3A%22%E5%9B%BE%E7%89%87%E5%A3%81%E7%BA%B8%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059384%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E6%80%8E%E4%B9%88%E8%B0%83%E7%94%A8%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059420%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059550%2C%22kw%22%3A%22%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734090849%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%22%2C%22fq%22%3A8%7D%2C%7B%22time%22%3A1734511587%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734511834%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%20%E4%BD%A0%E5%B0%B1%E7%9F%A5%E9%81%93%22%2C%22fq%22%3A2%7D%5D&amp;_t=1734511863552&amp;req=2&amp;csor=0 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20241218 18:17:49.645" level="INFO">GET Response : url=https://www.baidu.com/sugrec?&amp;prod=pc_his&amp;from=pc_web&amp;json=1&amp;sid=60277_61027_60853_61358_61373_61390_61392_61429_61464&amp;hisdata=%5B%7B%22time%22%3A1733973298%2C%22kw%22%3A%221733970025%E6%97%B6%E9%97%B4%E6%88%B3%E6%80%8E%E4%B9%88%E7%AE%97%E7%9A%84%22%7D%2C%7B%22time%22%3A1733973622%2C%22kw%22%3A%22postman%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E6%88%B3%22%7D%2C%7B%22time%22%3A1733976881%2C%22kw%22%3A%22postman%E4%BF%9D%E5%AD%98token%22%7D%2C%7B%22time%22%3A1733998766%2C%22kw%22%3A%22%E5%9B%BE%E7%89%87%E5%A3%81%E7%BA%B8%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059384%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E6%80%8E%E4%B9%88%E8%B0%83%E7%94%A8%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059420%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734059550%2C%22kw%22%3A%22%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2api%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734090849%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%22%2C%22fq%22%3A8%7D%2C%7B%22time%22%3A1734511587%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%22%2C%22fq%22%3A2%7D%2C%7B%22time%22%3A1734511834%2C%22kw%22%3A%22%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B%20%E4%BD%A0%E5%B0%B1%E7%9F%A5%E9%81%93%22%2C%22fq%22%3A2%7D%5D&amp;_t=1734511863552&amp;req=2&amp;csor=0 
+ status=200, reason=OK 
+ headers={'Content-Length': '763', 'Content-Type': 'text/plain; charset=UTF-8', 'Date': 'Wed, 18 Dec 2024 10:17:49 GMT'} 
+ body={"q":"","p":false,"bs":"","csor":"0","err_no":0,"errmsg":"","g":[{"type":"his_normal","sa":"h_1","q":"百度一下 你就知道"},{"type":"his_normal","sa":"h_2","q":"百度一下"},{"type":"his_normal","sa":"h_3","q":"百度"},{"type":"his_normal","sa":"h_4","q":"使用百度进行搜索api接口请求方法是什么"},{"type":"his_normal","sa":"h_5","q":"百度搜索api接口请求方法是什么"},{"type":"his_normal","sa":"h_6","q":"百度搜索api接口怎么调用"},{"type":"his_normal","sa":"h_7","q":"图片壁纸"},{"type":"his_normal","sa":"h_8","q":"postman保存token"},{"type":"his_normal","sa":"h_9","q":"postman怎么获取当前时间戳"},{"type":"his_normal","sa":"h_10","q":"1733970025时间戳怎么算的"}],"queryid":"0x9788c47d30ea22"} 
+ </msg>
+<msg timestamp="20241218 18:17:49.645" level="INFO">d:\pyt\python\python37\lib\site-packages\urllib3\connectionpool.py:1107: InsecureRequestWarning: Unverified HTTPS request is being made to host 'www.baidu.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20241218 18:17:49.645" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20241218 18:17:49.534" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241218 18:17:49.645" level="INFO">200</msg>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20241218 18:17:49.645" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${resp.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241218 18:17:49.645" level="INFO">{"q":"","p":false,"bs":"","csor":"0","err_no":0,"errmsg":"","g":[{"type":"his_normal","sa":"h_1","q":"百度一下 你就知道"},{"type":"his_normal","sa":"h_2","q":"百度一下"},{"type":"his_normal","sa":"h_3","q":"百度"},{"type":"his_normal","sa":"h_4","q":"使用百度进行搜索api接口请求方法是什么"},{"type":"his_normal","sa":"h_5","q":"百度搜索api接口请求方法是什么"},{"type":"his_normal","sa":"h_6","q":"百度搜索api接口怎么调用"},{"type":"his_normal","sa":"h_7","q":"图片壁纸"},{"type":"his_normal","sa":"h_8","q":"postman保存token"},{"type":"his_normal","sa":"h_9","q":"postman怎么获取当前时间戳"},{"type":"his_normal","sa":"h_10","q":"1733970025时间戳怎么算的"}],"queryid":"0x9788c47d30ea22"}</msg>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${resp.text}</arg>
+<arg>his_normal</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${resp.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20241218 18:17:49.645" level="INFO">{'q': '', 'p': False, 'bs': '', 'csor': '0', 'err_no': 0, 'errmsg': '', 'g': [{'type': 'his_normal', 'sa': 'h_1', 'q': '百度一下 你就知道'}, {'type': 'his_normal', 'sa': 'h_2', 'q': '百度一下'}, {'type': 'his_normal', 'sa': 'h_3', 'q': '百度'}, {'type': 'his_normal', 'sa': 'h_4', 'q': '使用百度进行搜索api接口请求方法是什么'}, {'type': 'his_normal', 'sa': 'h_5', 'q': '百度搜索api接口请求方法是什么'}, {'type': 'his_normal', 'sa': 'h_6', 'q': '百度搜索api接口怎么调用'}, {'type': 'his_normal', 'sa': 'h_7', 'q': '图片壁纸'}, {'type': 'his_normal', 'sa': 'h_8', 'q': 'postman保存token'}, {'type': 'his_normal', 'sa': 'h_9', 'q': 'postman怎么获取当前时间戳'}, {'type': 'his_normal', 'sa': 'h_10', 'q': '1733970025时间戳怎么算的'}], 'queryid': '0x9788c47d30ea22'}</msg>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp.json()["csor"]}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<kw name="Should Be Empty" library="BuiltIn">
+<arg>${resp.json()["errmsg"]}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<msg timestamp="20241218 18:17:49.645" level="INFO">Length is 0</msg>
+<status status="PASS" starttime="20241218 18:17:49.645" endtime="20241218 18:17:49.645"/>
+</kw>
+<status status="PASS" starttime="20241218 18:17:49.534" endtime="20241218 18:17:49.645"/>
+</test>
+<status status="PASS" starttime="20241218 18:17:49.461" endtime="20241218 18:17:49.645"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Baidu Page Copy">Baidu Page Copy</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
